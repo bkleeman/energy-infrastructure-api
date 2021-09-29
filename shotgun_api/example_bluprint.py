@@ -15,13 +15,14 @@ bp = Blueprint('example_blueprint', __name__,
 #     return jsonify([resource for resource in resources])
 
 
-@bp.route('<primary_type>/')
+@bp.route('<primary_type>')
 def get_by_primary_type(primary_type):
     infrastructure = shotgun_api.db.infrastructure.find({'properties.type.primary': primary_type}, projection = {'_id': False}) 
-    response = jsonify([resource for resource in infrastructure])
+    response = jsonify({ "type": "FeatureCollection",
+                        "features": [resource for resource in infrastructure]})
     response.headers.add("Access-Control-Allow-Origin", "*")
-    print('test primary_type')
     return response
+
 
 @bp.route("<primary_type>/<secondary_type>")
 def get_infrastructure(primary_type, secondary_type):
@@ -31,6 +32,7 @@ def get_infrastructure(primary_type, secondary_type):
     else:
         infrastructure = shotgun_api.db.infrastructure.find({"$and": [{'properties.type.primary': primary_type},{'properties.type.secondary': secondary_type}]}, projection = {"_id": False})    
     
-    response = jsonify([resource for resource in infrastructure])
+    response = jsonify({ "type": "FeatureCollection",
+                        "features": [resource for resource in infrastructure]})
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
