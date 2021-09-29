@@ -20,7 +20,7 @@ collection_infrastructure = db['infrastructure']
 
 # Store all data files into array for iteration
 files = []
-for dirname, dirnames, filenames in os.walk('./data'):
+for dirname, dirnames, filenames in os.walk('./data/new_data'):
     for filename in filenames:
         files.append(os.path.join(dirname, filename))
 
@@ -40,8 +40,8 @@ for file in files:
         # if file_data.keys() == "dict_keys(['type', 'crs', 'features'])" or "dict_keys(['type', 'name', 'crs', 'features'])" or "dict_keys(['type', 'name', 'features'])" or "dict_keys(['type', 'features'])":
         #     collection_infrastructure.insert_many(file_data['features'])
             # print('Successful file: ' + file)
-        # collection_infrastructure.insert_many(file_data['features'])
-        # print('Successful file: ' + file)
+        collection_infrastructure.insert_many(file_data['features'])
+        print('Successful file: ' + file)
 
 client.close()
 

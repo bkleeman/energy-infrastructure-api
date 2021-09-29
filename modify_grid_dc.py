@@ -4,17 +4,17 @@ except ImportError:
     import json
 
 
-with open('./data/grid-100_300.json', 'r') as f:
+with open('./data/grid-dc.json', 'r') as f:
     file_data = json.loads(f.read())
 
-with open('./data/new_data/grid-100_300.json', 'w') as f:
+with open('./data/new_data/grid-dc.json', 'w') as f:
     for feature in file_data["features"]:
         feature["properties"] = { "original" : feature["properties"]}
         feature["properties"]["required"] = {
             "unit": "kV",
             # visual dimension
             "viz_dim": "class",
-            "legend": "AC 100-300 kV",
+            "legend": "500-1000 kV DC",
             "years": []
         }
 
@@ -24,7 +24,7 @@ with open('./data/new_data/grid-100_300.json', 'w') as f:
 
         feature["properties"]["type"] = {
             "primary": "electric_grid",
-            "secondary": "100_300_kV_AC"
+            "secondary": "dc"
         }
 
     json.dump(file_data, f)
