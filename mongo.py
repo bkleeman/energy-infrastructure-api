@@ -20,7 +20,7 @@ collection_infrastructure = db['infrastructure']
 
 # Store all data files into array for iteration
 files = []
-for dirname, dirnames, filenames in os.walk('./data/new_data'):
+for dirname, dirnames, filenames in os.walk('./data/well_data'):
     for filename in filenames:
         files.append(os.path.join(dirname, filename))
 
