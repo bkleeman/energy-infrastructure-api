@@ -25,6 +25,9 @@ MONGO = dict(
     port=int(config_file.get('server', 'port')),
 )
 
-URI = "mongodb+srv://{}:{}@{}/{}?retryWrites=true&w=majority".format(
-    MONGO['user'], MONGO['password'], MONGO['domain'],
-    MONGO['database'])
+# URI = "mongodb+srv://{}:{}@{}/{}?retryWrites=true&w=majority".format(
+#     MONGO['user'], MONGO['password'], MONGO['domain'],
+#     MONGO['database'])
+
+# URI = "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false"
+URI = "mongodb://localhost:27017/energy_maps_local_db"

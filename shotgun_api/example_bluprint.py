@@ -3,7 +3,6 @@ from flask import json
 from flask.json import jsonify
 import shotgun_api
 from shotgun_api.constants import URL_PREFIX
-from shotgun_api import *
 
 bp = Blueprint('example_blueprint', __name__,
                                 url_prefix=URL_PREFIX)
@@ -17,6 +16,10 @@ bp = Blueprint('example_blueprint', __name__,
 
 @bp.route('<primary_type>')
 def get_by_primary_type(primary_type):
+    # add a geospatial index to every collection based on the geometry field or coordinates or whatever
+    # we want to use a 2dsphere, but check atlas db codebase for examples. Write a throwaway script for this
+    # Filter out keys you don't want with projection values
+    # Then worry about caching afterwards
     infrastructure = shotgun_api.db.infrastructure.find({'properties.type.primary': primary_type}, projection = {'_id': False}) 
     response = jsonify({ "type": "FeatureCollection",
                         "features": [resource for resource in infrastructure]})
