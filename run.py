@@ -1,4 +1,4 @@
-from shotgun_api import app
+from energy_infrastructure_api import app
 
 if __name__ == '__main__':
     app.run(debug=True)

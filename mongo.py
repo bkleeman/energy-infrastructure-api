@@ -2,7 +2,7 @@
 #     from energy_maps_api.main import EnergyMapsAPI
 # except ImportError:
 #     print('app not loading properly')
-from shotgun_api.constants import MONGO, URI
+from energy_infrastructure_api.constants import MONGO, URI
 import os
 from pymongo import MongoClient, mongo_client
 try:
