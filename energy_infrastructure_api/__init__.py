@@ -2,7 +2,7 @@ from flask import Flask
 from flask_pymongo import PyMongo
 from flask_caching import Cache
 from energy_infrastructure_api.constants import MONGO, URI, URL_PREFIX
-from energy_infrastructure_api.example_bluprint import *
+from energy_infrastructure_api.endpoints import *
 
 app = Flask(__name__)
 

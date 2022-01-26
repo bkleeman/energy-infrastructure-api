@@ -6,16 +6,15 @@ from flask_caching import Cache
 from energy_infrastructure_api.constants import URL_PREFIX
 from energy_infrastructure_api.excluded_fields import EXCLUDED_FIELDS
 
-bp = Blueprint('example_blueprint', __name__,
+bp = Blueprint('endpoints', __name__,
                                 url_prefix=URL_PREFIX)
 
 cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
 
-# @bp.route('/')
-# def index():
-#     resources = shotgun_api.db.infrastructure.find(projection = {"_id": False})
-#     print('test index')
-#     return jsonify([resource for resource in resources])
+@bp.route('/')
+def index():
+    resources = energy_infrastructure_api.db.infrastructure.find(projection = {"_id": False})
+    return jsonify([resource for resource in resources])
 
 
 @bp.route('<primary_type>')

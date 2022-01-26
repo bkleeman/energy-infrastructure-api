@@ -25,6 +25,8 @@ MONGO = dict(
     port=int(config_file.get('server', 'port')),
 )
 
+# Update Mongo URI as needed here
+
 # URI = "mongodb+srv://{}:{}@{}/{}?retryWrites=true&w=majority".format(
 #     MONGO['user'], MONGO['password'], MONGO['domain'],
 #     MONGO['database'])
