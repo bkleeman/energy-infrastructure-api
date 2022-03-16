@@ -4,14 +4,18 @@ except ImportError:
     import json
 
 
-with open('./data/wells_oil.json', 'r') as f:
+with open('../data/wells_oil.json', 'r') as f:
     file_data = json.loads(f.read())
 
-with open('./data/new_data/wells_oil.json', 'w') as f:
+with open('../data/well_data/wells_oil.json', 'w') as f:
     for feature in file_data["features"]:
+        if feature["properties"]["lon"] is None:
+            with open('../data/logfile.txt', 'a') as lf:
+                lf.write('skipped file:' + str(feature))
+            continue
         feature["geometry"] = {
             "type": "Point",
-            "coordinates": [feature["properties"]["lat"], feature["properties"]["lon"]]
+            "coordinates": [feature["properties"]["lon"], feature["properties"]["lat"]]
         }
 
         feature["properties"] = { "original" : feature["properties"]}

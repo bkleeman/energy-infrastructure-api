@@ -4,17 +4,17 @@ except ImportError:
     import json
 
 
-with open('./data/railrdl020.geojson', 'r') as f:
+with open('../data/pipeline_data/NaturalGas_InterIntrastate_Pipelines_US_cleaned.json', 'r') as f:
     file_data = json.loads(f.read())
 
-with open('./data/new_rr_data/railrdl020.geojson', 'w') as f:
+with open('../data/new_pipeline_data/gas_pipelines_cleaned.json', 'w') as f:
     for feature in file_data["features"]:
         feature["properties"] = { "original" : feature["properties"]}
         feature["properties"]["required"] = {
-            "unit": None,
+            "unit": "",
             # visual dimension
-            "viz_dim": None,
-            "legend": "Railroads",
+            "viz_dim": "",
+            "legend": "Gas pipelines",
             "years": []
         }
 
@@ -23,8 +23,11 @@ with open('./data/new_rr_data/railrdl020.geojson', 'w') as f:
         }
 
         feature["properties"]["type"] = {
-            "primary": "railroads",
-            "secondary": None
+            "primary": "pipelines",
+            "secondary": "gas"
         }
 
     json.dump(file_data, f)
+
+
+

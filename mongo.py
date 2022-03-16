@@ -1,7 +1,26 @@
+"""
+Currently not loading
+mines/coal -- not in db
+biodiesel -- not in db
+underground_storage/gas -- not in db
+active_platforms/oil_gas -- not in db
+terminals/petroleum_product -- not in db
+terminals/import -- not in db
+terminals/export -- not in db
+terminals/import_and_export -- not in db
+refineries/petroleum -- not in db
+all power plants -- not in db
+processing_plants/gas -- not in db
+strategic_reserves/petroleum -- not in db
+wells/tx_capcog -- not in db
+
+"""
+
 # try:
 #     from energy_maps_api.main import EnergyMapsAPI
 # except ImportError:
 #     print('app not loading properly')
+from gc import collect
 from energy_infrastructure_api.constants import MONGO, URI
 import os
 from pymongo import MongoClient, mongo_client
@@ -20,7 +39,7 @@ collection_infrastructure = db['infrastructure']
 
 # Store all data files into array for iteration
 files = []
-for dirname, dirnames, filenames in os.walk('./data/clipped_data/'):
+for dirname, dirnames, filenames in os.walk('./data/new_rr_data/'):
     for filename in filenames:
         files.append(os.path.join(dirname, filename))
 
@@ -37,11 +56,18 @@ for file in files:
         # Update these for new files
         # filter by the appropriate key for each file and log success
         # script will break on its own if there is an error
-        # if file_data.keys() == "dict_keys(['type', 'crs', 'features'])" or "dict_keys(['type', 'name', 'crs', 'features'])" or "dict_keys(['type', 'name', 'features'])" or "dict_keys(['type', 'features'])":
-        #     collection_infrastructure.insert_many(file_data['features'])
-        #     print('Successful file: ' + file)
-        collection_infrastructure.insert_many(file_data['features'])
-        print('Successful file: ' + file)
+        if file_data.keys() == "dict_keys(['type', 'crs', 'features'])" or "dict_keys(['type', 'name', 'crs', 'features'])" or "dict_keys(['type', 'name', 'features'])" or "dict_keys(['type', 'features'])":
+            # collection_infrastructure.insert_many(file_data['features'])
+            # print('Successful file: ' + file)
+            if f.name == "./data/well_data/TightOil_ShaleGas_US_Aug2015.geojson":
+                for index, feature in enumerate(file_data['features']):
+                    collection_infrastructure.insert_one(feature)
+                    print(index)
+            else: 
+                collection_infrastructure.insert_many(file_data['features'])
+            print('Successful file: ' + file)
+        # collection_infrastructure.insert_many(file_data['features'])
+        # print('Successful file: ' + file)
 
 client.close()
 

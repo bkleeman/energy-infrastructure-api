@@ -39,8 +39,16 @@ def get_infrastructure(primary_type, secondary_type):
         infrastructure = energy_infrastructure_api.db.infrastructure.find({'properties.type.secondary': secondary_type}, projection = EXCLUDED_FIELDS)
     else:
         infrastructure = energy_infrastructure_api.db.infrastructure.find({"$and": [{'properties.type.primary': primary_type},{'properties.type.secondary': secondary_type}]}, projection = EXCLUDED_FIELDS)    
+
+    resources = [resource for resource in infrastructure]
     
+    print(infrastructure)
+    # fuck arounf with some pagination
+    
+    # resources = [resource for resource in infrastructure]
     response = jsonify({ "type": "FeatureCollection",
-                        "features": [resource for resource in infrastructure]})
+                        "features": resources})
     response.headers.add("Access-Control-Allow-Origin", "*")
+    # print(primary_type)
+    # print(secondary_type)
     return response
