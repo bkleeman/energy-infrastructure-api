@@ -1,16 +1,14 @@
 """
 Currently not loading
-underground_storage/gas -- not in db
-active_platforms/oil_gas -- not in db
-terminals/petroleum_product -- not in db
-terminals/import -- not in db
-terminals/export -- not in db
-terminals/import_and_export -- not in db
-refineries/petroleum -- in db but not loading all on front end
-all power plants -- not in db
-processing_plants/gas -- not in db
-strategic_reserves/petroleum -- not in db
-wells/tx_capcog -- not in db
+terminals/petroleum_product -- in db but loading as "terminal" singular
+terminals/import -- in db but loading as "terminal" singular
+terminals/export -- in db but loading as "terminal" singular
+terminals/import_and_export -- in db but loading as "terminal" singular
+refineries/petroleum -- in db but not loading all on front end, probably duplicates as well
+all power plants -- in db -- some malformed with secondary type as "natural gas" or similar with space instead of underscore
+processing_plants/gas -- in db but loading "processing_plant" singular
+strategic_reserves/petroleum -- in db but loading "strategic_reserve" singular
+wells/tx_capcog -- in db but loading "well" singular
 
 """
 
