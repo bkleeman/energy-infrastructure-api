@@ -1,7 +1,5 @@
 """
 Currently not loading
-mines/coal -- not in db -- has "extra data" -- breaks when another GeoJSON object starts mid file
-biodiesel -- not in db
 underground_storage/gas -- not in db
 active_platforms/oil_gas -- not in db
 terminals/petroleum_product -- not in db
@@ -39,7 +37,7 @@ collection_infrastructure = db['infrastructure']
 
 # Store all data files into array for iteration
 files = []
-for dirname, dirnames, filenames in os.walk('./data/new_coal_data/'):
+for dirname, dirnames, filenames in os.walk('./data/data_from_previous/'):
     for filename in filenames:
         files.append(os.path.join(dirname, filename))
 
