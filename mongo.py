@@ -1,15 +1,10 @@
 """
 Currently not loading
-terminals/petroleum_product -- in db but loading as "terminal" singular
-terminals/import -- in db but loading as "terminal" singular
-terminals/export -- in db but loading as "terminal" singular
-terminals/import_and_export -- in db but loading as "terminal" singular
+terminals/petroleum_product -- not in db but loading as "terminal" singular in postman ???
 refineries/petroleum -- in db but not loading all on front end, probably duplicates as well
-all power plants -- in db -- some malformed with secondary type as "natural gas" or similar with space instead of underscore
 processing_plants/gas -- in db but loading "processing_plant" singular
 strategic_reserves/petroleum -- in db but loading "strategic_reserve" singular
-wells/tx_capcog -- in db but loading "well" singular
-
+consider reingesting all oil and gas, taking forever to load
 """
 
 # try:
