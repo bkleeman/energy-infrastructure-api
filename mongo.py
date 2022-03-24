@@ -1,9 +1,6 @@
 """
 Currently not loading
-terminals/petroleum_product -- not in db but loading as "terminal" singular in postman ???
 refineries/petroleum -- in db but not loading all on front end, probably duplicates as well
-processing_plants/gas -- in db but loading "processing_plant" singular
-strategic_reserves/petroleum -- in db but loading "strategic_reserve" singular
 consider reingesting all oil and gas, taking forever to load
 """
 
