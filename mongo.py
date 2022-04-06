@@ -33,14 +33,12 @@ for file in files:
         file_data = json.loads(f.read())
         # logging to help discern which files are passing
         print('Attempted file: ' + file)
-        print ('keys' + str(file_data.keys()))
+        print ('keys: ' + str(file_data.keys()))
 
-        # Update these for new files
+        # Update these for new files as needed
         # filter by the appropriate key for each file and log success
         # script will break on its own if there is an error
         if file_data.keys() == "dict_keys(['type', 'crs', 'features'])" or "dict_keys(['type', 'name', 'crs', 'features'])" or "dict_keys(['type', 'name', 'features'])" or "dict_keys(['type', 'features'])":
-            # collection_infrastructure.insert_many(file_data['features'])
-            # print('Successful file: ' + file)
             if f.name == "./data/well_data/TightOil_ShaleGas_US_Aug2015.geojson":
                 for index, feature in enumerate(file_data['features']):
                     collection_infrastructure.insert_one(feature)
@@ -48,8 +46,6 @@ for file in files:
             else: 
                 collection_infrastructure.insert_many(file_data['features'])
             print('Successful file: ' + file)
-        # collection_infrastructure.insert_many(file_data['features'])
-        # print('Successful file: ' + file)
 
 client.close()
 
