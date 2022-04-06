@@ -1,0 +1,54 @@
+# Endpoint Documentation
+
+## URL Prefix
+* http://127.0.0.1:5000/api/v0.1.0/infrastructure/
+
+## Endpoints
+* /active_platforms
+* /active_platforms/oil_gas
+* /biodiesel
+* /electric_grid
+* /electric_grid/dc
+* /electric_grid/under_100
+* /electric_grid/345_735_kV_AC
+* /electric_grid/100_300_kV_AC
+* /mines
+* /mines/coal
+* /mixed_shale_chalk
+* /mixed_shale_chalk/gas
+* /pipelines
+* /pipelines/gas
+* /pipelines/oil
+* /pipelines/petroleum_product
+* /power_plants
+* /power_plants/hydroelectric
+* /power_plants/coal
+* /power_plants/natural_gas
+* /power_plants/nuclear
+* /power_plants/petroleum
+* /power_plants/wind
+* /power_plants/solar
+* /power_plants/pumped_storage
+* /power_plants/geothermal
+* /power_plants/wood
+* /power_plants/other_fossil_gases
+* /processing_plants
+* /processing_plants/gas
+* /railroads
+* /refineries
+* /refineries/petroleum
+* /shale
+* /shale/gas
+* /strategic_reserves
+* /strategic_reserves/petroleum
+* /terminals
+* /terminals/petroleum_product
+* /terminals/import
+* /terminals/export
+* /terminals/import_and_export
+* /underground_storage
+* /underground_storage/gas
+* /wells
+* /wells/tx_capcog
+* /wells/gas
+* /wells/oil
