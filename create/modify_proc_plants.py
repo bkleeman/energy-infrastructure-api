@@ -4,11 +4,16 @@ except ImportError:
     import json
 
 
-with open('../../data/original_data/NaturalGas_ProcessingPlants_US_2014.geojson', 'r') as f:
+with open('./data/NaturalGas_ProcessingPlants_US_2014.geojson', 'r') as f:
     file_data = json.loads(f.read())
 
-with open('../../data/new_data/NaturalGas_ProcessingPlants_US_2014.geojson', 'w') as f:
+with open('./data/well_data/NaturalGas_ProcessingPlants_US_2014.geojson', 'w') as f:
     for feature in file_data["features"]:
+        # feature["geometry"] = {
+        #     "type": "Point",
+        #     "coordinates": [feature["properties"]["lon"], feature["properties"]["lat"]]
+        # }
+
         feature["properties"] = { "original" : feature["properties"]}
         feature["properties"]["required"] = {
             "unit": None,

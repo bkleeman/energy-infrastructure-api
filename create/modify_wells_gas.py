@@ -7,11 +7,11 @@ except ImportError:
 with open('./data/wells_gas.json', 'r') as f:
     file_data = json.loads(f.read())
 
-with open('./data/new_data/wells_gas.json', 'w') as f:
+with open('./data/well_data/wells_gas.json', 'w') as f:
     for feature in file_data["features"]:
         feature["geometry"] = {
             "type": "Point",
-            "coordinates": [feature["properties"]["lat"], feature["properties"]["lon"]]
+            "coordinates": [feature["properties"]["lon"], feature["properties"]["lat"]]
         }
 
         feature["properties"] = { "original" : feature["properties"]}
