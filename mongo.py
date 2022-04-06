@@ -1,9 +1,3 @@
-"""
-Currently not loading
-refineries/petroleum -- in db but not loading all on front end, probably duplicates as well
-consider reingesting all oil and gas, taking forever to load
-"""
-
 # try:
 #     from energy_maps_api.main import EnergyMapsAPI
 # except ImportError:
