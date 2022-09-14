@@ -1,3 +1,5 @@
+import flask
+from flask import render_template
 from flask import Blueprint
 from flask import json
 from flask.json import jsonify
@@ -13,8 +15,9 @@ cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
 
 @bp.route('/')
 def index():
-    resources = energy_infrastructure_api.db.infrastructure.find(projection = {"_id": False})
-    return jsonify([resource for resource in resources])
+    # resources = energy_infrastructure_api.db.infrastructure.find(projection = {"_id": False})
+    # return jsonify([resource for resource in resources])
+    return flask.render_template('index.html')
 
 
 @bp.route('<primary_type>')
