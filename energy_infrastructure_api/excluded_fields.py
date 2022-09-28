@@ -2,7 +2,7 @@ EXCLUDED_FIELDS = {
     # general
     '_id': False, 
     'properties.optional': False, 
-    'properties.required.years': False, 
+    # 'properties.required.years': False, 
     # coal mines
     'properties.original.county': False,
     'properties.original.msha_id': False,
