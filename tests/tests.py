@@ -10,6 +10,8 @@ OIL_WELLS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/we
 GAS_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/pipelines/gas'
 OIL_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/pipelines/oil'
 PETROLEUM_PRODUCT_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/pipelines/petroleum_product'
+OIL_REFINERIES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/refineries/petroleum'
+
 
 # Helper functions
 
@@ -154,3 +156,20 @@ def test_secondary_type_petroleum_product_pipelines():
 
 def test_has_coordinates_petroleum_product_pipelines():
     check_has_coordinates(PETROLEUM_PRODUCT_PIPELINES_ENDPOINT)
+
+# Oil refineries tests
+
+def test_status_code_oil_refineries():
+    check_status_code(OIL_REFINERIES_ENDPOINT)
+
+def test_verify_json_oil_refineries():
+    verify_json(OIL_REFINERIES_ENDPOINT)
+
+def test_primary_type_oil_refineries():
+    check_primary_type(OIL_REFINERIES_ENDPOINT, 'refineries')
+
+def test_secondary_type_oil_refineries():
+    check_secondary_type(OIL_REFINERIES_ENDPOINT, 'petroleum')
+
+def test_has_coordinates_oil_refineries():
+    check_has_coordinates(OIL_REFINERIES_ENDPOINT)
