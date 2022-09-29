@@ -11,7 +11,7 @@ GAS_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year
 OIL_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/pipelines/oil'
 PETROLEUM_PRODUCT_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/pipelines/petroleum_product'
 OIL_REFINERIES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/refineries/petroleum'
-
+GAS_PROCESSING_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/processing/gas'
 
 # Helper functions
 
@@ -173,3 +173,20 @@ def test_secondary_type_oil_refineries():
 
 def test_has_coordinates_oil_refineries():
     check_has_coordinates(OIL_REFINERIES_ENDPOINT)
+
+# Gas processing tests
+
+def test_status_code_gas_processing():
+    check_status_code(GAS_PROCESSING_ENDPOINT)
+
+def test_verify_json_gas_processing():
+    verify_json(GAS_PROCESSING_ENDPOINT)
+
+def test_primary_type_gas_processing():
+    check_primary_type(GAS_PROCESSING_ENDPOINT, 'processing')
+
+def test_secondary_type_gas_processing():
+    check_secondary_type(GAS_PROCESSING_ENDPOINT, 'gas')
+
+def test_has_coordinates_gas_processing():
+    check_has_coordinates(GAS_PROCESSING_ENDPOINT)
