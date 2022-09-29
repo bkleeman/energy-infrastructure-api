@@ -9,6 +9,7 @@ GAS_WELLS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/we
 OIL_WELLS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/wells/oil'
 
 # Helper functions
+
 def check_status_code(endpoint):
     response = requests.get(endpoint)
     assert response.status_code == 200
@@ -35,17 +36,6 @@ def check_has_coordinates(endpoint):
         coords_exists = True
     assert True
 
-# Primary type exclusive tests, using railroads
-
-def test_primary_type_exclusive():
-    response = requests.get(RAILROADS_ENDPOINT)
-    response_body = response.json()
-    assert response_body['features'][0]['properties']['type']['primary'] == 'railroads'
-
-def test_primary_type_exclusive_status_code():
-    response = requests.get(RAILROADS_ENDPOINT)
-    assert response.status_code == 200
-
 # Mines tests
 
 def test_status_code_mines():
@@ -62,6 +52,20 @@ def test_secondary_type_mines():
 
 def test_has_coordinates_mines():
     check_has_coordinates(MINES_ENDPOINT)
+
+# Railroad tests
+
+def test_status_code_railroads():
+    check_status_code(RAILROADS_ENDPOINT)
+
+def test_verify_json_railroads():
+    verify_json(RAILROADS_ENDPOINT)
+
+def test_primary_type_railroads():
+    check_primary_type(RAILROADS_ENDPOINT, 'railroads')
+
+def test_has_coordinates_railroads():
+    check_has_coordinates(RAILROADS_ENDPOINT)
 
 # Gas wells tests
 
