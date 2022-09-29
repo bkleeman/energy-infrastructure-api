@@ -7,6 +7,9 @@ MINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/mines/
 RAILROADS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/railroads'
 GAS_WELLS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/wells/gas'
 OIL_WELLS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/wells/oil'
+GAS_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/pipelines/gas'
+OIL_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/pipelines/oil'
+PETROLEUM_PRODUCT_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/pipelines/petroleum_product'
 
 # Helper functions
 
@@ -69,32 +72,85 @@ def test_has_coordinates_railroads():
 
 # Gas wells tests
 
-def test_gas_wells_status_code():
-    response = requests.get(GAS_WELLS_ENDPOINT)
-    assert response.status_code == 200
+def test_status_code_gas_wells():
+    check_status_code(GAS_WELLS_ENDPOINT)
+
+def test_verify_json_gas_wells():
+    verify_json(GAS_WELLS_ENDPOINT)
 
 def test_primary_type_gas_wells():
-    response = requests.get(GAS_WELLS_ENDPOINT)
-    response_body = response.json()
-    assert response_body['features'][0]['properties']['type']['primary'] == 'wells'
+    check_primary_type(GAS_WELLS_ENDPOINT, 'wells')
 
 def test_secondary_type_gas_wells():
-    response = requests.get(GAS_WELLS_ENDPOINT)
-    response_body = response.json()
-    assert response_body['features'][0]['properties']['type']['secondary'] == 'gas'
+    check_secondary_type(GAS_WELLS_ENDPOINT, 'gas')
+
+def test_has_coordinates_gas_wells():
+    check_has_coordinates(GAS_WELLS_ENDPOINT)
 
 # Oil wells tests
 
-def test_oil_wells_status_code():
-    response = requests.get(GAS_WELLS_ENDPOINT)
-    assert response.status_code == 200
+def test_status_code_oil_wells():
+    check_status_code(OIL_WELLS_ENDPOINT)
+
+def test_verify_json_oil_wells():
+    verify_json(OIL_WELLS_ENDPOINT)
 
 def test_primary_type_oil_wells():
-    response = requests.get(GAS_WELLS_ENDPOINT)
-    response_body = response.json()
-    assert response_body['features'][0]['properties']['type']['primary'] == 'wells'
+    check_primary_type(OIL_WELLS_ENDPOINT, 'wells')
 
 def test_secondary_type_oil_wells():
-    response = requests.get(GAS_WELLS_ENDPOINT)
-    response_body = response.json()
-    assert response_body['features'][0]['properties']['type']['secondary'] == 'gas'
+    check_secondary_type(OIL_WELLS_ENDPOINT, 'oil')
+
+def test_has_coordinates_oil_wells():
+    check_has_coordinates(OIL_WELLS_ENDPOINT)
+
+# Gas pipelines tests
+
+def test_status_code_gas_pipelines():
+    check_status_code(GAS_PIPELINES_ENDPOINT)
+
+def test_verify_json_gas_pipelines():
+    verify_json(GAS_PIPELINES_ENDPOINT)
+
+def test_primary_type_gas_pipelines():
+    check_primary_type(GAS_PIPELINES_ENDPOINT, 'pipelines')
+
+def test_secondary_type_gas_pipelines():
+    check_secondary_type(GAS_PIPELINES_ENDPOINT, 'gas')
+
+def test_has_coordinates_gas_pipelines():
+    check_has_coordinates(GAS_PIPELINES_ENDPOINT)
+
+# Oil pipelines tests
+
+def test_status_code_oil_pipelines():
+    check_status_code(OIL_PIPELINES_ENDPOINT)
+
+def test_verify_json_oil_pipelines():
+    verify_json(OIL_PIPELINES_ENDPOINT)
+
+def test_primary_type_oil_pipelines():
+    check_primary_type(OIL_PIPELINES_ENDPOINT, 'pipelines')
+
+def test_secondary_type_oil_pipelines():
+    check_secondary_type(OIL_PIPELINES_ENDPOINT, 'oil')
+
+def test_has_coordinates_oil_pipelines():
+    check_has_coordinates(OIL_PIPELINES_ENDPOINT)
+
+# Petroleum product pipelines tests
+
+def test_status_code_petroleum_product_pipelines():
+    check_status_code(PETROLEUM_PRODUCT_PIPELINES_ENDPOINT)
+
+def test_verify_json_petroleum_product_pipelines():
+    verify_json(PETROLEUM_PRODUCT_PIPELINES_ENDPOINT)
+
+def test_primary_type_petroleum_product_pipelines():
+    check_primary_type(PETROLEUM_PRODUCT_PIPELINES_ENDPOINT, 'pipelines')
+
+def test_secondary_type_petroleum_product_pipelines():
+    check_secondary_type(PETROLEUM_PRODUCT_PIPELINES_ENDPOINT, 'petroleum_product')
+
+def test_has_coordinates_petroleum_product_pipelines():
+    check_has_coordinates(PETROLEUM_PRODUCT_PIPELINES_ENDPOINT)
