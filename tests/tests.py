@@ -12,6 +12,14 @@ OIL_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year
 PETROLEUM_PRODUCT_PIPELINES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/pipelines/petroleum_product'
 OIL_REFINERIES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/refineries/petroleum'
 GAS_PROCESSING_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/processing/gas'
+COAL_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/coal'
+NATURAL_GAS_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/natural_gas'
+PETROLEUM_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/petroleum'
+NUCLEAR_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/nuclear'
+HYDROELECTRIC_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/hydroelectric'
+WIND_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/wind'
+SOLAR_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/solar'
+GEOTHERMAL_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/geothermal'
 
 # Helper functions
 
@@ -190,3 +198,139 @@ def test_secondary_type_gas_processing():
 
 def test_has_coordinates_gas_processing():
     check_has_coordinates(GAS_PROCESSING_ENDPOINT)
+
+# Coal plant tests
+
+def test_status_code_coal_plants():
+    check_status_code(COAL_PLANTS_ENDPOINT)
+
+def test_verify_json_coal_plants():
+    verify_json(COAL_PLANTS_ENDPOINT)
+
+def test_primary_type_coal_plants():
+    check_primary_type(COAL_PLANTS_ENDPOINT, 'power_plants')
+
+def test_secondary_type_coal_plants():
+    check_secondary_type(COAL_PLANTS_ENDPOINT, 'coal')
+
+def test_has_coordinates_coal_plants():
+    check_has_coordinates(COAL_PLANTS_ENDPOINT)
+
+# Natural gas plant tests
+
+def test_status_code_natural_gas_plants():
+    check_status_code(NATURAL_GAS_PLANTS_ENDPOINT)
+
+def test_verify_json_natural_gas_plants():
+    verify_json(NATURAL_GAS_PLANTS_ENDPOINT)
+
+def test_primary_type_natural_gas_plants():
+    check_primary_type(NATURAL_GAS_PLANTS_ENDPOINT, 'power_plants')
+
+def test_secondary_type_natural_gas_plants():
+    check_secondary_type(NATURAL_GAS_PLANTS_ENDPOINT, 'natural_gas')
+
+def test_has_coordinates_natural_gas_plants():
+    check_has_coordinates(NATURAL_GAS_PLANTS_ENDPOINT)
+
+# Petroleum plant tests
+
+def test_status_code_petroleum_plants():
+    check_status_code(PETROLEUM_PLANTS_ENDPOINT)
+
+def test_verify_json_petroleum_plants():
+    verify_json(PETROLEUM_PLANTS_ENDPOINT)
+
+def test_primary_type_petroleum_plants():
+    check_primary_type(PETROLEUM_PLANTS_ENDPOINT, 'power_plants')
+
+def test_secondary_type_petroleum_plants():
+    check_secondary_type(PETROLEUM_PLANTS_ENDPOINT, 'petroleum')
+
+def test_has_coordinates_petroleum_plants():
+    check_has_coordinates(PETROLEUM_PLANTS_ENDPOINT)
+
+# Nuclear plant tests
+
+def test_status_code_nuclear_plants():
+    check_status_code(NUCLEAR_PLANTS_ENDPOINT)
+
+def test_verify_json_nuclear_plants():
+    verify_json(NUCLEAR_PLANTS_ENDPOINT)
+
+def test_primary_type_nuclear_plants():
+    check_primary_type(NUCLEAR_PLANTS_ENDPOINT, 'power_plants')
+
+def test_secondary_type_nuclear_plants():
+    check_secondary_type(NUCLEAR_PLANTS_ENDPOINT, 'nuclear')
+
+def test_has_coordinates_nuclear_plants():
+    check_has_coordinates(NUCLEAR_PLANTS_ENDPOINT)
+
+# Hydroelectric plant tests
+
+def test_status_code_hydroelectric_plants():
+    check_status_code(HYDROELECTRIC_PLANTS_ENDPOINT)
+
+def test_verify_json_hydroelectric_plants():
+    verify_json(HYDROELECTRIC_PLANTS_ENDPOINT)
+
+def test_primary_type_hydroelectric_plants():
+    check_primary_type(HYDROELECTRIC_PLANTS_ENDPOINT, 'power_plants')
+
+def test_secondary_type_hydroelectric_plants():
+    check_secondary_type(HYDROELECTRIC_PLANTS_ENDPOINT, 'hydroelectric')
+
+def test_has_coordinates_hydroelectric_plants():
+    check_has_coordinates(HYDROELECTRIC_PLANTS_ENDPOINT)
+
+# Wind farms/wind plant tests
+
+def test_status_code_wind_plants():
+    check_status_code(WIND_PLANTS_ENDPOINT)
+
+def test_verify_json_wind_plants():
+    verify_json(WIND_PLANTS_ENDPOINT)
+
+def test_primary_type_wind_plants():
+    check_primary_type(WIND_PLANTS_ENDPOINT, 'power_plants')
+
+def test_secondary_type_wind_plants():
+    check_secondary_type(WIND_PLANTS_ENDPOINT, 'wind')
+
+def test_has_coordinates_wind_plants():
+    check_has_coordinates(WIND_PLANTS_ENDPOINT)
+
+# Solar plant tests
+
+def test_status_code_solar_plants():
+    check_status_code(SOLAR_PLANTS_ENDPOINT)
+
+def test_verify_json_solar_plants():
+    verify_json(SOLAR_PLANTS_ENDPOINT)
+
+def test_primary_type_solar_plants():
+    check_primary_type(SOLAR_PLANTS_ENDPOINT, 'power_plants')
+
+def test_secondary_type_solar_plants():
+    check_secondary_type(SOLAR_PLANTS_ENDPOINT, 'solar')
+
+def test_has_coordinates_solar_plants():
+    check_has_coordinates(SOLAR_PLANTS_ENDPOINT)
+
+# Geothermal plant tests
+
+def test_status_code_geothermal_plants():
+    check_status_code(GEOTHERMAL_PLANTS_ENDPOINT)
+
+def test_verify_json_geothermal_plants():
+    verify_json(GEOTHERMAL_PLANTS_ENDPOINT)
+
+def test_primary_type_geothermal_plants():
+    check_primary_type(GEOTHERMAL_PLANTS_ENDPOINT, 'power_plants')
+
+def test_secondary_type_geothermal_plants():
+    check_secondary_type(GEOTHERMAL_PLANTS_ENDPOINT, 'geothermal')
+
+def test_has_coordinates_geothermal_plants():
+    check_has_coordinates(GEOTHERMAL_PLANTS_ENDPOINT)
