@@ -20,6 +20,12 @@ HYDROELECTRIC_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructur
 WIND_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/wind'
 SOLAR_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/solar'
 GEOTHERMAL_PLANTS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/power_plants/geothermal'
+ELECTRIC_GRID_100_300_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/electric_grid/100_300_kV_AC'
+ELECTRIC_GRID_345_735_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/electric_grid/345_735_kV_AC'
+ELECTRIC_GRID_UNDER_100_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/electric_grid/under_100'
+ELECTRIC_GRID_DC_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/electric_grid/dc'
+BIODIESEL_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/biodiesel'
+ACTIVE_PLATFORMS_OIL_GAS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/active_platforms/oil_gas'
 
 # Helper functions
 
@@ -334,3 +340,112 @@ def test_secondary_type_geothermal_plants():
 
 def test_has_coordinates_geothermal_plants():
     check_has_coordinates(GEOTHERMAL_PLANTS_ENDPOINT)
+
+# Electric grid 100-300 tests
+
+def test_status_code_grid_100_300():
+    check_status_code(ELECTRIC_GRID_100_300_ENDPOINT)
+
+def test_verify_json_grid_100_300():
+    verify_json(ELECTRIC_GRID_100_300_ENDPOINT)
+
+def test_primary_type_grid_100_300():
+    check_primary_type(ELECTRIC_GRID_100_300_ENDPOINT, 'electric_grid')
+
+def test_secondary_type_grid_100_300():
+    check_secondary_type(ELECTRIC_GRID_100_300_ENDPOINT, '100_300_kV_AC')
+
+def test_has_coordinates_grid_100_300():
+    check_has_coordinates(ELECTRIC_GRID_100_300_ENDPOINT)
+
+# Electric grid 345-735 tests
+
+def test_status_code_grid_345_735():
+    check_status_code(ELECTRIC_GRID_345_735_ENDPOINT)
+
+def test_verify_json_grid_345_735():
+    verify_json(ELECTRIC_GRID_345_735_ENDPOINT)
+
+def test_primary_type_grid_345_735():
+    check_primary_type(ELECTRIC_GRID_345_735_ENDPOINT, 'electric_grid')
+
+def test_secondary_type_grid_345_735():
+    check_secondary_type(ELECTRIC_GRID_345_735_ENDPOINT, '345_735_kV_AC')
+
+def test_has_coordinates_grid_345_735():
+    check_has_coordinates(ELECTRIC_GRID_345_735_ENDPOINT)
+
+# Electric grid under 100 tests
+
+def test_status_code_grid_under_100():
+    check_status_code(ELECTRIC_GRID_UNDER_100_ENDPOINT)
+
+def test_verify_json_grid_under_100():
+    verify_json(ELECTRIC_GRID_UNDER_100_ENDPOINT)
+
+def test_primary_type_grid_under_100():
+    check_primary_type(ELECTRIC_GRID_UNDER_100_ENDPOINT, 'electric_grid')
+
+def test_secondary_type_grid_under_100():
+    check_secondary_type(ELECTRIC_GRID_UNDER_100_ENDPOINT, 'under_100')
+
+def test_has_coordinates_grid_under_100():
+    check_has_coordinates(ELECTRIC_GRID_UNDER_100_ENDPOINT)
+
+# Electric grid dc tests
+
+def test_status_code_grid_dc():
+    check_status_code(ELECTRIC_GRID_DC_ENDPOINT)
+
+def test_verify_json_grid_dc():
+    verify_json(ELECTRIC_GRID_DC_ENDPOINT)
+
+def test_primary_type_grid_dc():
+    check_primary_type(ELECTRIC_GRID_DC_ENDPOINT, 'electric_grid')
+
+def test_secondary_type_grid_dc():
+    check_secondary_type(ELECTRIC_GRID_DC_ENDPOINT, 'dc')
+
+def test_has_coordinates_grid_dc():
+    check_has_coordinates(ELECTRIC_GRID_DC_ENDPOINT)
+
+# Biodiesel tests
+
+def test_status_code_biodiesel():
+    check_status_code(BIODIESEL_ENDPOINT)
+
+def test_verify_json_biodiesel():
+    verify_json(BIODIESEL_ENDPOINT)
+
+def test_primary_type_biodiesel():
+    check_primary_type(BIODIESEL_ENDPOINT, 'biodiesel')
+
+def test_has_coordinates_biodiesel():
+    check_has_coordinates(BIODIESEL_ENDPOINT)
+
+# Active platforms tests
+
+def test_status_code_active_platforms():
+    check_status_code(ACTIVE_PLATFORMS_OIL_GAS_ENDPOINT)
+
+def test_verify_json_active_platforms():
+    verify_json(ACTIVE_PLATFORMS_OIL_GAS_ENDPOINT)
+
+def test_primary_type_active_platforms():
+    check_primary_type(ACTIVE_PLATFORMS_OIL_GAS_ENDPOINT, 'active_platforms')
+
+def test_secondary_type_active_platforms():
+    check_secondary_type(ACTIVE_PLATFORMS_OIL_GAS_ENDPOINT, 'oil_gas')
+
+def test_has_coordinates_active_platforms():
+    check_has_coordinates(ACTIVE_PLATFORMS_OIL_GAS_ENDPOINT)
+
+# Mixed shale/chalk tests
+
+# Shale/gas tests
+
+# Strategic reserves tests
+
+# Terminals tests
+
+# Underground storage tests
