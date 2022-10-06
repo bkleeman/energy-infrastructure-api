@@ -26,6 +26,9 @@ ELECTRIC_GRID_UNDER_100_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastruc
 ELECTRIC_GRID_DC_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/electric_grid/dc'
 BIODIESEL_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/biodiesel'
 ACTIVE_PLATFORMS_OIL_GAS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/active_platforms/oil_gas'
+MIXED_SHALE_CHALK_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/mixed_shale_chalk/gas'
+SHALE_GAS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/shale/gas'
+STRATEGIC_RESERVES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/strategic_reserves/petroleum'
 
 # Helper functions
 
@@ -442,9 +445,54 @@ def test_has_coordinates_active_platforms():
 
 # Mixed shale/chalk tests
 
+def test_status_code_mixed_shale_chalk():
+    check_status_code(MIXED_SHALE_CHALK_ENDPOINT)
+
+def test_verify_json_mixed_shale_chalk():
+    verify_json(MIXED_SHALE_CHALK_ENDPOINT)
+
+def test_primary_type_mixed_shale_chalk():
+    check_primary_type(MIXED_SHALE_CHALK_ENDPOINT, 'mixed_shale_chalk')
+
+def test_secondary_type_mixed_shale_chalk():
+    check_secondary_type(MIXED_SHALE_CHALK_ENDPOINT, 'gas')
+
+def test_has_coordinates_mixed_shale_chalk():
+    check_has_coordinates(MIXED_SHALE_CHALK_ENDPOINT)
+
 # Shale/gas tests
 
+def test_status_code_shale_gas():
+    check_status_code(SHALE_GAS_ENDPOINT)
+
+def test_verify_json_shale_gas():
+    verify_json(SHALE_GAS_ENDPOINT)
+
+def test_primary_type_shale_gas():
+    check_primary_type(SHALE_GAS_ENDPOINT, 'shale')
+
+def test_secondary_type_shale_gas():
+    check_secondary_type(SHALE_GAS_ENDPOINT, 'gas')
+
+def test_has_coordinates_shale_gas():
+    check_has_coordinates(SHALE_GAS_ENDPOINT)
+
 # Strategic reserves tests
+
+def test_status_code_strategic_reserves():
+    check_status_code(STRATEGIC_RESERVES_ENDPOINT)
+
+def test_verify_json_strategic_reserves():
+    verify_json(STRATEGIC_RESERVES_ENDPOINT)
+
+def test_primary_type_strategic_reserves():
+    check_primary_type(STRATEGIC_RESERVES_ENDPOINT, 'strategic_reserves')
+
+def test_secondary_type_strategic_reserves():
+    check_secondary_type(STRATEGIC_RESERVES_ENDPOINT, 'petroleum')
+
+def test_has_coordinates_strategic_reserves():
+    check_has_coordinates(STRATEGIC_RESERVES_ENDPOINT)
 
 # Terminals tests
 
