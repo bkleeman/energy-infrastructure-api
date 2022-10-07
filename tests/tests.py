@@ -29,6 +29,10 @@ ACTIVE_PLATFORMS_OIL_GAS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastru
 MIXED_SHALE_CHALK_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/mixed_shale_chalk/gas'
 SHALE_GAS_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/shale/gas'
 STRATEGIC_RESERVES_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/strategic_reserves/petroleum'
+TERMINALS_PETROLEUM_PRODUCT_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/terminals/petroleum_product'
+TERMINALS_IMPORT_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/terminals/import'
+TERMINALS_EXPORT_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/terminals/export'
+TERMINALS_IMPORT_AND_EXPORT_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/terminals/import_and_export'
 
 # Helper functions
 
@@ -494,6 +498,73 @@ def test_secondary_type_strategic_reserves():
 def test_has_coordinates_strategic_reserves():
     check_has_coordinates(STRATEGIC_RESERVES_ENDPOINT)
 
-# Terminals tests
+# Terminals petroleum product tests
+
+def test_status_code_terminals_petroleum_product():
+    check_status_code(TERMINALS_PETROLEUM_PRODUCT_ENDPOINT)
+
+def test_verify_json_terminals_petroleum_product():
+    verify_json(TERMINALS_PETROLEUM_PRODUCT_ENDPOINT)
+
+def test_primary_type_terminals_petroleum_product():
+    check_primary_type(TERMINALS_PETROLEUM_PRODUCT_ENDPOINT, 'terminals')
+
+def test_secondary_type_terminals_petroleum_product():
+    check_secondary_type(TERMINALS_PETROLEUM_PRODUCT_ENDPOINT, 'petroleum_product')
+
+def test_has_coordinates_terminals_petroleum_product():
+    check_has_coordinates(TERMINALS_PETROLEUM_PRODUCT_ENDPOINT)
+
+
+# Terminals import tests
+
+def test_status_code_terminals_import():
+    check_status_code(TERMINALS_IMPORT_ENDPOINT)
+
+def test_verify_json_terminals_import():
+    verify_json(TERMINALS_IMPORT_ENDPOINT)
+
+def test_primary_type_terminals_import():
+    check_primary_type(TERMINALS_IMPORT_ENDPOINT, 'terminals')
+
+def test_secondary_type_terminals_import():
+    check_secondary_type(TERMINALS_IMPORT_ENDPOINT, 'import')
+
+def test_has_coordinates_terminals_import():
+    check_has_coordinates(TERMINALS_IMPORT_ENDPOINT)
+
+# Terminals export tests
+
+def test_status_code_terminals_export():
+    check_status_code(TERMINALS_EXPORT_ENDPOINT)
+
+def test_verify_json_terminals_export():
+    verify_json(TERMINALS_EXPORT_ENDPOINT)
+
+def test_primary_type_terminals_export():
+    check_primary_type(TERMINALS_EXPORT_ENDPOINT, 'terminals')
+
+def test_secondary_type_terminals_export():
+    check_secondary_type(TERMINALS_EXPORT_ENDPOINT, 'export')
+
+def test_has_coordinates_terminals_export():
+    check_has_coordinates(TERMINALS_EXPORT_ENDPOINT)
+
+# Terminals import and export tests
+
+def test_status_code_terminals_import_and_export():
+    check_status_code(TERMINALS_IMPORT_AND_EXPORT_ENDPOINT)
+
+def test_verify_json_terminals_import_and_export():
+    verify_json(TERMINALS_IMPORT_AND_EXPORT_ENDPOINT)
+
+def test_primary_type_terminals_import_and_export():
+    check_primary_type(TERMINALS_IMPORT_AND_EXPORT_ENDPOINT, 'terminals')
+
+def test_secondary_type_terminals_import_and_export():
+    check_secondary_type(TERMINALS_IMPORT_AND_EXPORT_ENDPOINT, 'import_and_export')
+
+def test_has_coordinates_terminals_import_and_export():
+    check_has_coordinates(TERMINALS_IMPORT_AND_EXPORT_ENDPOINT)
 
 # Underground storage tests
