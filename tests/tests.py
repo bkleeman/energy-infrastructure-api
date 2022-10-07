@@ -33,6 +33,7 @@ TERMINALS_PETROLEUM_PRODUCT_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infras
 TERMINALS_IMPORT_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/terminals/import'
 TERMINALS_EXPORT_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/terminals/export'
 TERMINALS_IMPORT_AND_EXPORT_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/terminals/import_and_export'
+UNDERGROUND_STORAGE_ENDPOINT = f'http://127.0.0.1:5000/api/v0.1.0/infrastructure/{year}/underground_storage/gas'
 
 # Helper functions
 
@@ -568,3 +569,18 @@ def test_has_coordinates_terminals_import_and_export():
     check_has_coordinates(TERMINALS_IMPORT_AND_EXPORT_ENDPOINT)
 
 # Underground storage tests
+
+def test_status_code_underground_storage():
+    check_status_code(UNDERGROUND_STORAGE_ENDPOINT)
+
+def test_verify_json_underground_storage():
+    verify_json(UNDERGROUND_STORAGE_ENDPOINT)
+
+def test_primary_type_underground_storage():
+    check_primary_type(UNDERGROUND_STORAGE_ENDPOINT, 'underground_storage')
+
+def test_secondary_type_underground_storage():
+    check_secondary_type(UNDERGROUND_STORAGE_ENDPOINT, 'gas')
+
+def test_has_coordinates_underground_storage():
+    check_has_coordinates(UNDERGROUND_STORAGE_ENDPOINT)
