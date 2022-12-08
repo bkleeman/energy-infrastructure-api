@@ -39,13 +39,15 @@ for file in files:
         # filter by the appropriate key for each file and log success
         # script will break on its own if there is an error
         if file_data.keys() == "dict_keys(['type', 'crs', 'features'])" or "dict_keys(['type', 'name', 'crs', 'features'])" or "dict_keys(['type', 'name', 'features'])" or "dict_keys(['type', 'features'])":
-            if f.name == "./data/well_data/TightOil_ShaleGas_US_Aug2015.geojson":
-                for index, feature in enumerate(file_data['features']):
-                    collection_infrastructure.insert_one(feature)
-                    print(index)
-            else: 
-                collection_infrastructure.insert_many(file_data['features'])
-            print('Successful file: ' + file)
+            try:
+                if f.name == "./data/well_data/TightOil_ShaleGas_US_Aug2015.geojson":
+                    for index, feature in enumerate(file_data['features']):
+                        collection_infrastructure.insert_one(feature)
+                        print(index)
+                else: 
+                    collection_infrastructure.insert_many(file_data['features'])
+                print('Successful file: ' + file)
+            except: print(f"{file} failed! Please try again.")
 
 client.close()
 
