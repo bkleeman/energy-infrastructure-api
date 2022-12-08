@@ -4,24 +4,26 @@ except ImportError:
     import json
 
 
-with open('./data/Petroleum_Refineries_US_2015.geojson', 'r') as f:
+with open('../../data/2022/original/merged_refcap_eia_refineries.json', 'r') as f:
     file_data = json.loads(f.read())
 
-with open('./data/new_refinery_data/Petroleum_Refineries_US_2015.geojson', 'w') as f:
+with open('../../data/2022/modified/merged_refcap_eia_refineries.json', 'w') as f:
     for feature in file_data["features"]:
-        # feature["geometry"] = {
-        #     "type": "Point",
-        #     "coordinates": [feature["properties"]["coordinates"], feature["properties"]["coordinates"]]
-        # }
+        feature["geometry"] = {
+            "type": "Point",
+            "coordinates": [feature["properties"]["X"], feature["properties"]["Y"]]
+        }
 
         feature["properties"] = { "original" : feature["properties"]}
 
         feature["properties"]["required"] = {
-        "unit": None,
+        "unit": "Atmospheric Crude Distillation Capacity (barrels per stream day)",
         # visual dimension
-        "viz_dim": None,
+        "viz_dim": 'QUANTITY',
         "legend": "Oil refineries",
-        "years": []
+        "years": {
+            "actual": 0, "nominal": 2022
+            }
     }
 
         feature["properties"]["optional"] = {
