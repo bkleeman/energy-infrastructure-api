@@ -21,8 +21,8 @@ plant_codes = {
         "secondary_type": "coal"
     },
     "LIG": {
-        "legend": "Lignite power plants",
-        "secondary_type": "lignite"
+        "legend": "Coal power plants",
+        "secondary_type": "coal"
     },
     "NUC": {
         "legend": "Nuclear power plants",
@@ -87,52 +87,52 @@ plant_codes = {
         "secondary_type": "blast_furnace_gas"
     },
     "DFO": {
-        "legend": "Distillate fuel oil power plants",
-        "secondary_type": "distillate_fuel_oil"
+        "legend": "Petroleum power plants",
+        "secondary_type": "petroleum"
     },
     "JF": {
-        "legend": "Jet fuel power plants",
-        "secondary_type": "jet_fuel"
+        "legend": "Petroleum power plants",
+        "secondary_type": "petroleum"
     },
     "KER": {
-        "legend": "Kerosene power plants",
-        "secondary_type": "kerosene"
+        "legend": "Petroleum power plants",
+        "secondary_type": "petroleum"
     },
     "OG": {
-        "legend": "Other gas power plants",
-        "secondary_type": "other_gas"
+        "legend": "Petroleum power plants",
+        "secondary_type": "petroleum"
     },
     "PC": {
-        "legend": "Petroleum coke power plants",
-        "secondary_type": "petroleum_coke"
+        "legend": "Petroleum power plants",
+        "secondary_type": "petroleum"
     },
     "PG": {
-        "legend": "Gaseous propane power plants",
-        "secondary_type": "gaseous_propane"
+        "legend": "Petroleum power plants",
+        "secondary_type": "petroleum"
     },
     "RC": {
         "legend": "Coal power plants",
         "secondary_type": "coal"
     },
     "RFO": {
-        "legend": "Residual fuel oil power plants",
-        "secondary_type": "residual_fuel_oil"
+        "legend": "Petroleum power plants",
+        "secondary_type": "petroleum"
     },
     "SGC": {
         "legend": "Coal power plants",
         "secondary_type": "coal"
     },
     "SGP": {
-        "legend": "Synthesis gas from petroleum coke power plants",
-        "secondary_type": "synthesis_gas_from_petroleum_coke"
+        "legend": "Petroleum power plants",
+        "secondary_type": "petroleum"
     },
     "WC": {
         "legend": "Coal power plants",
         "secondary_type": "coal"
     },
     "WO": {
-        "legend": "Waste oil power plants",
-        "secondary_type": "waste_oil"
+        "legend": "Petroleum power plants",
+        "secondary_type": "petroleum"
     },
     "MWH": {
         "legend": "Electricity used for energy storage",
