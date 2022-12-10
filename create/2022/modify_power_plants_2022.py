@@ -40,51 +40,51 @@ plant_codes = {
         "legend": "Geothermal power plants",
         "secondary_type": "geothermal"
     },
-    # Are all the biomass ones to be labeled as Biofuel in the legend and biodiesel as secondary_type?
+    # Are all the biomass ones to be labeled as Biofuel in the legend and biomass as secondary_type?
     "AB": {
         "legend": "Biofuel",
-        "secondary_type": "biodiesel"
+        "secondary_type": "biomass"
     },
     "BLQ": {
         "legend": "Biofuel",
-        "secondary_type": "biodiesel"
+        "secondary_type": "biomass"
     },
     "LFG": {
         "legend": "Biofuel",
-        "secondary_type": "biodiesel"
+        "secondary_type": "biomass"
     },
     "MSW": {
         "legend": "Biofuel",
-        "secondary_type": "biodiesel"
+        "secondary_type": "biomass"
     },
     "OBG": {
         "legend": "Biofuel",
-        "secondary_type": "biodiesel"
+        "secondary_type": "biomass"
     },
     "OBL": {
         "legend": "Biofuel",
-        "secondary_type": "biodiesel"
+        "secondary_type": "biomass"
     },
     "OBS": {
         "legend": "Biofuel",
-        "secondary_type": "biodiesel"
+        "secondary_type": "biomass"
     },
     "TDF": {
         "legend": "Biofuel",
-        "secondary_type": "biodiesel"
+        "secondary_type": "biomass"
     },
     "WDL": {
         "legend": "Biofuel",
-        "secondary_type": "biodiesel"
+        "secondary_type": "biomass"
     },
     "WDS": {
         "legend": "Biofuel",
-        "secondary_type": "biodiesel"
+        "secondary_type": "biomass"
     },
     # Other fossil codes
     "BFG": {
         "legend": "Blast furnance gas power plants",
-        "secondary_type": "blast_furnace_gas"
+        "secondary_type": "other"
     },
     "DFO": {
         "legend": "Petroleum power plants",
@@ -159,7 +159,7 @@ with open('../../data/2022/modified/Power_Plants.json', 'w') as f:
     for feature in file_data["features"]:
         feature["geometry"] = {
             "type": "Point",
-            "coordinates": [feature["properties"]["X"], feature["properties"]["Y"]]
+            "coordinates": [feature["properties"]["LONGITUDE"], feature["properties"]["LATITUDE"]]
         }
 
 
@@ -168,7 +168,7 @@ with open('../../data/2022/modified/Power_Plants.json', 'w') as f:
             "unit": None,
             # visual dimension
             "viz_dim": "SUMMER_CAP",
-            "legend": feature["properties"]["original"]["PrimaryFue"] + " power plants",
+            # "legend": feature["properties"]["original"]["PrimaryFue"] + " power plants",
             "years": {
                 "actual": 0,
                 "nominal": 2022
@@ -180,16 +180,17 @@ with open('../../data/2022/modified/Power_Plants.json', 'w') as f:
         }
 
         feature["properties"]["type"] = {
-            "primary": "power_plant",
-            "secondary": feature["properties"]["original"]["PrimaryFue"].lower()
+            "primary": "power_plants",
+            # "secondary": feature["properties"]["original"]["PrimaryFue"].lower()
         }
 
+        for key in plant_codes:
+            if feature["properties"]["original"]["PRIM_FUEL"] == key:
+                feature["properties"]["required"]["legend"] = plant_codes[key]["legend"]
+                feature["properties"]["type"]["secondary"] = plant_codes[key]["secondary_type"]
 
-
-        if feature["properties"]["original"]["PRIM_FUEL"] == "WAT":
-            # feature["properties"]["required"]["legend"]: "Hydroelectric power plants"
-            # feature["properties"]["type"]["secondary"]: "hydroelectric"
-            feature["properties"]["required"]["legend"] = plant_codes["WAT"]["legend"]
-            feature["properties"]["type"]["secondary"] = plant_codes["WAT"]["secondary_type"]
+        # if feature["properties"]["original"]["PRIM_FUEL"] == "WAT":
+        #     feature["properties"]["required"]["legend"] = plant_codes["WAT"]["legend"]
+        #     feature["properties"]["type"]["secondary"] = plant_codes["WAT"]["secondary_type"]
 
     json.dump(file_data, f, indent=2)

@@ -44,7 +44,7 @@ for file in files:
                 for index, feature in enumerate(file_data['features']):
                     collection_infrastructure.insert_one(feature)
                     print(index)
-            else: 
+            else:   
                 collection_infrastructure.insert_many(file_data['features'])
             print('Successful file: ' + file)
             # except: 
