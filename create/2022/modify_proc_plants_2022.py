@@ -11,7 +11,7 @@ with open('../../data/2022/modified/Natural_Gas_Processing_Plants.json', 'w') as
     for feature in file_data["features"]:
         feature["geometry"] = {
             "type": "Point",
-            "coordinates": [feature["properties"]["X"], feature["properties"]["Y"]]
+            "coordinates": [feature["properties"]["LONGITUDE"], feature["properties"]["LATITUDE"]]
         }
 
         feature["properties"] = { "original" : feature["properties"]}
