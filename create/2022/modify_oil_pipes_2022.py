@@ -4,10 +4,10 @@ except ImportError:
     import json
 
 
-with open('../../data/2022/original/CrudeOil_Pipelines_US_EIA.json', 'r') as f:
+with open('../../data/2022/original/CrudeOil_Pipelines_US_EIA.geojson', 'r') as f:
     file_data = json.loads(f.read())
 
-with open('../../data/2022/modified/CrudeOil_Pipelines_US_EIA.json', 'w') as f:
+with open('../../data/2022/modified/CrudeOil_Pipelines_US_EIA.geojson', 'w') as f:
     for feature in file_data["geometries"]:
         feature["properties"] = { "original" : ""}
         feature["properties"]["required"] = {
